@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxrymxw45tgbw"]
+
+[ext_resource type="PackedScene" uid="uid://bcmcus2arkimt" path="res://PlayerCharacter.tscn" id="1_ki4h7"]
+[ext_resource type="PackedScene" uid="uid://buxxrodwiqpe4" path="res://StandardPlatform.tscn" id="2_0ieyt"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_pffw7"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_h2g36"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_65hom"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_ki4h7")]
+
+[node name="WB StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WB StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_pffw7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WB StaticBody3D"]
+transform = Transform3D(119.45, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("PlaneMesh_h2g36")
+
+[node name="Refcube" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.04363)
+mesh = SubResource("BoxMesh_65hom")
+
+[node name="Refcube2" type="MeshInstance3D" parent="."]
+transform = Transform3D(13.5711, 0, 14.691, 0, 20, 0, -14.691, 0, 13.5711, -7.24286, 9.7898, -39.2412)
+mesh = SubResource("BoxMesh_65hom")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.0621669, -0.933855, 0.352207, 0.162323, 0.357651, 0.91964, -0.984777, 7.34304e-09, 0.17382, 0.321287, 8.33275, 0)
+
+[node name="MeshInstance3D" parent="." instance=ExtResource("2_0ieyt")]
+transform = Transform3D(2.98538, 0, 0, 0, 0.135093, 0, 0, 0, 1.76118, 0, 5.78391, 0)
+
+[node name="MeshInstance3D3" parent="." instance=ExtResource("2_0ieyt")]
+transform = Transform3D(2.98538, 0, 0, 0, 0.135093, 0, 0, 0, 1.76118, 0, 9.21247, 0)
+
+[node name="MeshInstance3D2" parent="." instance=ExtResource("2_0ieyt")]
+transform = Transform3D(2.98538, 0, 0, 0, 0.135093, 0, 0, 0, 1.76118, 4.8589, 3.24946, 0)
